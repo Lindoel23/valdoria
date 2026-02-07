@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Valdoria — Economia do Reino</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <h1>🏰 Reino de Valdoria</h1>
+  <p>Economia viva do reino</p>
+</header>
+
+<main>
+
+<section class="card">
+  <h2>Renda Mensal</h2>
+
+  <label>Renda Rural (PO)
+    <input type="number" id="rural" value="5700">
+  </label>
+
+  <label>Renda Urbana (PO)
+    <input type="number" id="urbana" value="9500">
+  </label>
+
+  <label>Outras Fontes (PO)
+    <input type="number" id="outras" value="7800">
+  </label>
+
+  <p>Total Renda: <span id="totalRenda">0</span> PO</p>
+</section>
+
+<section class="card">
+  <h2>Despesas Mensais</h2>
+
+  <label>Salários (PO)
+    <input type="number" id="salarios" value="22450">
+  </label>
+
+  <label>Operacional (PO)
+    <input type="number" id="operacional" value="8300">
+  </label>
+
+  <p>Total Despesas: <span id="totalDespesas">0</span> PO</p>
+</section>
+
+<section class="card highlight">
+  <h2>Balanço do Reino</h2>
+  <p id="balanco">—</p>
+</section>
+
+</main>
+
+<script src="js/economy.js"></script>
+</body>
+</html>
