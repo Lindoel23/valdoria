@@ -1,0 +1,99 @@
+/* css/components/lines.css */
+
+/* --- MODO VISUALIZAÇÃO --- */
+.line-row {
+    display: grid;
+    /* MUDANÇA AQUI: 3 colunas iguais garantem que o meio fique no centro absoluto da tela */
+    grid-template-columns: 1fr 1fr 1fr; 
+    
+    padding: 12px 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    min-height: 40px;
+}
+
+.line-label { 
+    font-size: 1rem; 
+    color: var(--text-main);
+    
+    display: flex;
+    align-items: center; /* Centro Vertical */
+    justify-content: flex-start; /* Alinhado à esquerda */
+    
+    /* Garante que texto longo não quebre o layout */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.line-description { 
+    font-size: 0.85rem; 
+    color: var(--text-muted); 
+    font-style: italic; 
+    
+    /* Centralização Absoluta */
+    display: flex;
+    justify-content: center; /* Centro Horizontal */
+    align-items: center;     /* Centro Vertical */
+    text-align: center;
+    height: 100%;
+}
+
+.line-result { 
+    text-align: right; 
+    font-weight: bold; 
+    color: var(--accent); 
+    font-family: 'Courier New', monospace;
+    
+    display: flex;
+    justify-content: flex-end; /* Alinhado à direita */
+    align-items: center;       /* Centro Vertical */
+}
+
+/* Esconde visualização no modo edição */
+body.mode-edit .view-mode { display: none; }
+body:not(.mode-edit) .edit-mode { display: none; }
+
+/* --- MODO EDIÇÃO (CARD UNIFICADO) --- */
+.card-edit-unified {
+    background: rgba(255, 255, 255, 0.02);
+    padding: 15px;
+    border-radius: var(--radius-sm);
+    margin-bottom: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.edit-grid-header {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.edit-input-name { flex: 1.5; font-weight: bold; color: var(--accent) !important; }
+.edit-input-desc { flex: 2; font-style: italic; color: var(--text-muted) !important; }
+
+/* Rodapé da Edição (Fórmula + Resultado) */
+.edit-grid-footer { display: flex; align-items: center; gap: 15px; }
+
+.formula-box {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    background: rgba(46, 213, 115, 0.05);
+    padding: 5px 12px;
+    border-radius: 6px;
+    border: 1px solid rgba(46, 213, 115, 0.1);
+}
+
+.formula-symbol { font-size: 16px; color: var(--success); margin-right: 8px; }
+.formula-input { color: var(--success) !important; font-family: 'Consolas', monospace !important; font-size: 0.9rem !important; }
+
+.result-badge {
+    min-width: 100px;
+    text-align: right;
+    font-weight: bold;
+    color: var(--accent);
+    font-size: 1.1rem;
+    font-family: 'Courier New', monospace;
+}
+.unit { font-size: 0.7rem; margin-left: 4px; opacity: 0.8; }

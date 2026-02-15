@@ -1,0 +1,132 @@
+/* css/components/table.css */
+
+/* Estilo compartilhado para as duas seções */
+.population-section, .salaries-section {
+    margin: 20px auto 40px;
+    padding: 25px;
+    background: var(--bg-glass);
+    border: var(--border-glass);
+    border-radius: var(--radius-lg);
+    backdrop-filter: blur(12px);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.pop-table-wrapper, .sal-table-wrapper {
+    width: 100%;
+}
+
+.pop-table, .sal-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed; 
+    color: var(--text-main);
+}
+
+/* --- COLUNAS: POPULAÇÃO --- */
+.col-group { width: 25%; }
+.col-pop   { width: 20%; }
+.col-pct   { width: 15%; }
+.col-act   { width: 35%; }
+.col-del   { width: 5%; }
+
+/* --- COLUNAS: SALÁRIOS --- */
+.col-prof  { width: 40%; }
+.col-sal   { width: 25%; }
+.col-life  { width: 30%; }
+
+/* --- ESTILOS GERAIS DE TABELA --- */
+th {
+    padding: 12px;
+    color: var(--accent);
+    font-weight: 300;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+td {
+    padding: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    vertical-align: middle;
+}
+
+/* Classes de Alinhamento */
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+/* Inputs dentro da tabela */
+.input-magic {
+    padding: 6px 8px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 0.9rem;
+    color: inherit;
+    background: transparent;
+    border: 1px solid transparent;
+    transition: 0.2s;
+}
+
+/* Força o alinhamento do texto dentro do input a seguir a célula pai */
+.text-right .input-magic { text-align: right; }
+.text-center .input-magic { text-align: center; }
+.text-left .input-magic { text-align: left; }
+
+/* MODO VISUALIZAÇÃO */
+body:not(.mode-edit) .input-magic {
+    border-color: transparent;
+    pointer-events: none;
+}
+
+/* MODO EDIÇÃO */
+body.mode-edit .input-magic {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    pointer-events: auto;
+}
+
+body.mode-edit .input-magic:focus {
+    background: rgba(0, 0, 0, 0.3);
+    border-color: var(--accent);
+    outline: none;
+}
+
+/* --- RODAPÉS --- */
+.pop-footer, .sal-footer {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    border-top: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.total-display {
+    font-size: 1rem;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+.limit-exceeded { color: var(--danger) !important; }
+
+.pop-limit-input, .sal-footer-input {
+    display: inline-block;
+    color: var(--accent) !important;
+    border-bottom: 1px dashed var(--accent) !important;
+    text-align: center;
+    background: transparent !important; 
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+}
+
+.pop-limit-input { width: 90px; }
+.sal-footer-input { width: 150px; text-align: right; }
+
+.del-group { opacity: 0.5; cursor: pointer; border:none; background:none; color:var(--text-muted); }
+.del-group:hover { opacity: 1; color: var(--danger); }
+
+body:not(.mode-edit) .edit-mode { display: none; }

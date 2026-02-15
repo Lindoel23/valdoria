@@ -1,0 +1,140 @@
+/* css/components/cards.css */
+
+/* --- SESSÃO (Macro) --- */
+.session-block {
+    margin-bottom: 50px;
+    animation: fadeIn 0.5s ease;
+    /* Adiciona um fundo sutil para separar sessões visualmente */
+    background: rgba(255, 255, 255, 0.01);
+    border-radius: var(--radius-lg);
+    padding: 10px; 
+    border: 1px solid transparent;
+}
+
+.session-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding: 15px 10px;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.3s;
+}
+
+.session-header:hover {
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 8px;
+}
+
+/* Título Grande e Imponente */
+.session-title {
+    flex-grow: 1; /* Empurra o total para a direita */
+    font-size: 1.5rem; /* Maior */
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--text-main);
+    text-transform: uppercase;
+}
+
+/* Totalizador da Sessão (Dourado e Grande) */
+.session-total {
+    font-family: 'Courier New', monospace;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--accent);
+    white-space: nowrap;
+    text-align: right;
+    min-width: 120px;
+}
+
+/* Seta e Ícones */
+.collapse-icon {
+    transition: transform 0.3s ease;
+    color: var(--accent);
+    font-size: 32px; /* Ícone maior */
+}
+
+.collapsed-state .collapse-icon {
+    transform: rotate(-90deg);
+    opacity: 0.7;
+}
+
+.session-content {
+    transition: all 0.3s ease;
+    overflow: hidden;
+    padding-left: 10px; /* Indentação leve */
+}
+
+.hidden { display: none; }
+
+
+/* --- NÍVEL (Médio) --- */
+.level-card {
+    background: var(--bg-glass);
+    border: var(--border-glass);
+    border-radius: var(--radius-lg);
+    padding: 20px 25px;
+    margin-bottom: 20px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+    transition: all 0.3s;
+}
+
+.level-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    cursor: pointer;
+    user-select: none;
+    gap: 15px;
+}
+
+/* Wrapper para manter ícone e título juntos, mas permitindo crescer */
+.level-title-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-grow: 1;
+}
+
+.level-header .collapse-icon {
+    font-size: 24px; /* Ícone médio */
+}
+
+.title-input {
+    font-size: 1.1rem; /* Tamanho médio */
+    font-weight: bold;
+    color: var(--accent);
+    letter-spacing: 0.5px;
+}
+
+/* Totalizador do Nível */
+.level-total {
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
+    color: var(--text-muted); /* Mais discreto que a sessão */
+    font-weight: bold;
+    white-space: nowrap;
+    min-width: 100px;
+    text-align: right;
+}
+
+/* Botões de Ação (Lixeira) */
+.action-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-muted);
+    transition: 0.2s;
+    padding: 6px;
+    border-radius: 6px;
+    align-items: center;
+    justify-content: center;
+}
+
+.action-btn:hover { color: var(--danger); background: rgba(255, 71, 87, 0.1); }
+body.mode-edit .action-btn { display: inline-flex; }

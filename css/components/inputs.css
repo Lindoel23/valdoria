@@ -1,0 +1,26 @@
+/* --- INPUTS MÁGICOS --- */
+.input-magic {
+    background: transparent;
+    border: 1px solid transparent;
+    color: var(--text-main);
+    font-family: inherit;
+    font-size: inherit;
+    padding: 5px 8px;
+    width: 100%;
+    border-radius: 4px;
+    transition: all 0.2s;
+    pointer-events: none; /* Bloqueado por padrão */
+}
+
+/* Estilo Ativo no Modo Edição */
+body.mode-edit .input-magic {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    pointer-events: auto;
+}
+
+body.mode-edit .input-magic:focus {
+    background: rgba(0, 0, 0, 0.3);
+    border-color: var(--accent);
+    outline: none;
+}

@@ -1,0 +1,15 @@
+body {
+    background-color: var(--bg-app);
+    color: var(--text-main);
+    font-family: 'Inter', system-ui, sans-serif;
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    padding-bottom: 100px; /* Espaço para o botão flutuante */
+    box-sizing: border-box;
+}
+
+/* Garante que inputs herdem fontes */
+input, button {
+    font-family: inherit;
+}

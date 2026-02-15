@@ -1,0 +1,21 @@
+:root {
+    /* Paleta Glassmorphism Dark */
+    --bg-app: #050505;          /* Preto Profundo */
+    --bg-glass: rgba(255, 255, 255, 0.03); /* Vidro sutil */
+    --bg-glass-hover: rgba(255, 255, 255, 0.06);
+    
+    --border-glass: 1px solid rgba(255, 255, 255, 0.08);
+    --border-active: 1px solid rgba(212, 175, 55, 0.5); /* Dourado */
+    
+    --text-main: #e0e0e0;
+    --text-muted: #666666;
+    
+    --accent: #d4af37;         /* Dourado */
+    --accent-glow: 0 0 15px rgba(212, 175, 55, 0.3);
+    
+    --danger: #ff4757;
+    --success: #2ed573;
+    
+    --radius-lg: 16px;
+    --radius-sm: 8px;
+}

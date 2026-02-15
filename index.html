@@ -1,58 +1,62 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Valdoria — Economia do Reino</title>
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valdoria — Construtor de Reino</title>
+    
+    <!-- Estilos Modulares (CSS) -->
+    <!-- O arquivo style.css agora importa: Base, Layout e Componentes -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Ícones (Google Material Icons) -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
 </head>
 <body>
 
-<header>
-  <h1>🏰 Reino de Valdoria</h1>
-  <p>Economia viva do reino</p>
-</header>
+    <!-- CABEÇALHO GLOBAL -->
+    <header class="main-header">
+        <h1>Valdoria</h1>
+        <div class="header-meta">
+            <span>População: <strong id="meta-pop">0</strong></span>
+            <span>Saldo: <strong id="meta-saldo">0 PO</strong></span>
+        </div>
+    </header>
 
-<main>
+    <!-- ONDE TUDO ACONTECE (Renderizado pelo JS) -->
+    <main id="kingdom-root">
+        <div class="empty-state">
+            <p>Carregando reino...</p>
+        </div>
+    </main>
 
-<section class="card">
-  <h2>Renda Mensal</h2>
+    <!-- BOTÕES FLUTUANTES (FAB) -->
+    
+    <!-- Botão de Exportar Contexto (Aparece apenas na edição) -->
+    <button id="fab-export" class="fab btn-export" title="Exportar Contexto para IA">
+        <span class="material-icons-round">file_download</span>
+    </button>
 
-  <label>Renda Rural (PO)
-    <input type="number" id="rural" value="5700">
-  </label>
+    <!-- Botão Mestre de Edição -->
+    <button id="fab-mode" class="fab" title="Alternar Modo Edição">
+        <span class="material-icons-round icon-default">edit</span>
+        <span class="material-icons-round icon-active">close</span>
+    </button>
 
-  <label>Renda Urbana (PO)
-    <input type="number" id="urbana" value="9500">
-  </label>
+    <div id="modal-password" class="modal-overlay hidden">
+        <div class="modal-content">
+            <span class="material-icons-round modal-icon">lock</span>
+            <h2>Chave do Reino</h2>
+            <p>Insira a senha para ativar o modo de edição.</p>
+            <input type="password" id="input-pass" placeholder="Digite a senha..." autofocus>
+            <div class="modal-actions">
+                <button id="btn-cancel-pass" class="btn-modal-secondary">Cancelar</button>
+                <button id="btn-confirm-pass" class="btn-modal-primary">Entrar</button>
+            </div>
+        </div>
+    </div>
 
-  <label>Outras Fontes (PO)
-    <input type="number" id="outras" value="7800">
-  </label>
-
-  <p>Total Renda: <span id="totalRenda">0</span> PO</p>
-</section>
-
-<section class="card">
-  <h2>Despesas Mensais</h2>
-
-  <label>Salários (PO)
-    <input type="number" id="salarios" value="22450">
-  </label>
-
-  <label>Operacional (PO)
-    <input type="number" id="operacional" value="8300">
-  </label>
-
-  <p>Total Despesas: <span id="totalDespesas">0</span> PO</p>
-</section>
-
-<section class="card highlight">
-  <h2>Balanço do Reino</h2>
-  <p id="balanco">—</p>
-</section>
-
-</main>
-
-<script src="js/economy.js"></script>
+    <!-- LÓGICA MODULAR (JS) -->
+    <script type="module" src="js/app.js"></script>
 </body>
 </html>

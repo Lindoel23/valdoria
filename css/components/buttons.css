@@ -1,0 +1,77 @@
+/* --- FAB (Botões Flutuantes) --- */
+.fab {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: none;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s, background 0.3s;
+    z-index: 1000;
+}
+
+.fab:hover { transform: scale(1.1); box-shadow: var(--accent-glow); }
+.fab .material-icons-round { font-size: 28px; color: #000; }
+
+/* Botão de Exportação */
+.btn-export {
+    right: 105px;
+    background: #1a1a1a !important;
+    border: 1px solid var(--accent);
+    display: none !important;
+}
+.btn-export .material-icons-round { color: var(--accent) !important; }
+
+/* Estados de Edição nos FABs */
+body.mode-edit .btn-export { display: flex !important; animation: slideIn 0.3s ease-out; }
+.fab .icon-active { display: none; }
+body.mode-edit .fab:not(.btn-export) { background: #fff; }
+body.mode-edit .fab:not(.btn-export) .icon-default { display: none; }
+body.mode-edit .fab:not(.btn-export) .icon-active { display: block; }
+
+/* --- Botões de Ação Pequenos (Lixeira) --- */
+.action-btn {
+    display: none; /* Escondido no modo visualização */
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-muted);
+    transition: 0.2s;
+    padding: 6px;
+    border-radius: 6px;
+    align-items: center;
+    justify-content: center;
+}
+.action-btn:hover { color: var(--danger); background: rgba(255, 71, 87, 0.1); }
+.action-btn .material-icons-round { font-size: 20px; }
+body.mode-edit .action-btn { display: inline-flex; }
+
+/* --- Botão Grande (Criar) --- */
+.btn-create-large {
+    display: none;
+    width: 100%;
+    padding: 14px;
+    margin-top: 15px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px dashed var(--text-muted);
+    color: var(--text-muted);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    text-align: center;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+}
+body.mode-edit .btn-create-large {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+.btn-create-large:hover { border-color: var(--accent); color: var(--accent); }

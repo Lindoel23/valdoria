@@ -1,59 +1,21 @@
-:root {
-  --azul: #1e66cc;
-  --dourado: #d4af37;
-  --preto: #0a0a0a;
-  --texto: #f3f4f6;
-}
+/* 
+   VALDORIA - Stylesheet Principal 
+   Ordem de Importação é crucial: Base > Layout > Componentes
+*/
 
-body {
-  background: var(--preto);
-  color: var(--texto);
-  font-family: Inter, Arial, sans-serif;
-  margin: 0;
-  padding: 20px;
-}
+/* 1. Base */
+@import url('base/variables.css');
+@import url('base/reset.css');
+@import url('base/animations.css');
 
-header {
-  text-align: center;
-  margin-bottom: 30px;
-}
+/* 2. Estrutura Macro */
+@import url('layout/structure.css');
 
-h1 {
-  color: var(--azul);
-}
-
-main {
-  display: grid;
-  gap: 20px;
-  max-width: 800px;
-  margin: auto;
-}
-
-.card {
-  background: rgba(255,255,255,0.03);
-  padding: 20px;
-  border-radius: 12px;
-}
-
-.highlight {
-  border: 2px solid var(--dourado);
-}
-
-label {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 10px;
-}
-
-input {
-  width: 120px;
-  background: #111;
-  border: 1px solid #333;
-  color: var(--texto);
-  padding: 5px;
-}
-
-#balanco {
-  font-size: 22px;
-  font-weight: bold;
-}
+/* 3. Componentes UI */
+@import url('components/buttons.css');
+@import url('components/inputs.css');
+@import url('components/cards.css');
+@import url('components/lines.css');
+@import url('components/table.css');
+@import url('components/requests.css');
+@import url('components/modal.css');

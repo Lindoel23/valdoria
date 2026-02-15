@@ -1,0 +1,169 @@
+/* css/components/requests.css */
+
+.requests-section {
+    margin: 20px auto 40px;
+    padding: 25px;
+    background: var(--bg-glass);
+    border: var(--border-glass);
+    border-radius: var(--radius-lg);
+    backdrop-filter: blur(12px);
+}
+
+.req-header-title {
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    display: block;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    padding-bottom: 10px;
+}
+
+.req-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* O Card da Solicitação */
+.req-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Borda padrão mais visível */
+    border-radius: 8px;
+    padding: 0;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* --- ESTADOS DE STATUS (REFORÇADO) --- */
+
+/* Aprovado (Verde) - Usando !important para garantir prioridade */
+.req-card.approved {
+    border: 1px solid var(--success) !important;
+    box-shadow: 0 0 15px rgba(46, 213, 115, 0.15);
+}
+.req-card.approved .input-magic {
+    color: var(--success);
+    font-weight: 500;
+}
+
+/* Reprovado (Vermelho) - Usando !important para garantir prioridade */
+.req-card.rejected {
+    border: 1px solid var(--danger) !important;
+    box-shadow: 0 0 15px rgba(255, 71, 87, 0.15);
+}
+.req-card.rejected .input-magic {
+    color: var(--danger);
+    text-decoration: line-through;
+    opacity: 0.7;
+}
+
+/* --- CABEÇALHO DO CARD --- */
+.req-card-header {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    gap: 10px;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.req-icon-collapse {
+    cursor: pointer;
+    color: var(--text-muted);
+    transition: transform 0.3s;
+}
+.req-card.collapsed .req-icon-collapse { transform: rotate(-90deg); }
+
+.req-title-input {
+    flex-grow: 1;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+/* --- BOTÕES DE DECISÃO --- */
+.req-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.btn-decision {
+    background: none;
+    border: 1px solid transparent; /* Adiciona borda invisível para não pular no hover */
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+    
+    /* Estado Padrão: Visível mas apagado */
+    opacity: 0.4; 
+    color: var(--text-muted);
+}
+
+/* Hover (Passar mouse) */
+.btn-approve:hover {
+    opacity: 1;
+    color: var(--success);
+    background: rgba(46, 213, 115, 0.1);
+    border-color: rgba(46, 213, 115, 0.3);
+}
+
+.btn-reject:hover {
+    opacity: 1;
+    color: var(--danger);
+    background: rgba(255, 71, 87, 0.1);
+    border-color: rgba(255, 71, 87, 0.3);
+}
+
+/* Estado ATIVO (Quando selecionado) */
+.req-card.approved .btn-approve {
+    opacity: 1;
+    color: #fff; /* Ícone branco */
+    background: var(--success); /* Fundo verde cheio */
+    box-shadow: 0 0 10px var(--success);
+}
+
+.req-card.rejected .btn-reject {
+    opacity: 1;
+    color: #fff; /* Ícone branco */
+    background: var(--danger); /* Fundo vermelho cheio */
+    box-shadow: 0 0 10px var(--danger);
+}
+
+/* Botão Deletar */
+.btn-del-req { 
+    opacity: 0.5; 
+    color: var(--text-muted); 
+    margin-left: 10px; 
+    border-left: 1px solid rgba(255,255,255,0.1); 
+    padding-left: 10px;
+}
+.btn-del-req:hover { opacity: 1; color: var(--danger); }
+
+/* --- CORPO DO CARD --- */
+.req-card-body {
+    padding: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.req-card.collapsed .req-card-body { display: none; }
+
+.req-desc-input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: var(--text-main);
+    resize: none;
+    font-family: inherit;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    min-height: 60px;
+    overflow: hidden;
+}
+.req-desc-input:focus { outline: none; }
+
+/* Esconde botões de delete fora do modo edição */
+body:not(.mode-edit) .btn-del-req { display: none; }
